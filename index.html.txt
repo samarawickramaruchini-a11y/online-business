@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NUVORA | Creativity Takes Shape - Premium DIY Craft Kits</title>
+    <meta name="description" content="Discover the joy of creating with NUVORA. Premium gypsum crafts, POP art, and DIY painting kits for kids and adults. Creativity takes shape here.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="NUVORA | Creativity Takes Shape">
+    <meta property="og:description" content="Premium DIY craft kits and painting supplies for all ages.">
+    <meta property="og:type" content="website">
+
+    <style>
+        /* 
+           BRAND IDENTITY
+           Primary Yellow: #FFBF00
+           Deep Black: #171717
+           Warm White: #FFFDF7
+        */
+        :root {
+            --primary: #FFBF00;
+            --black: #171717;
+            --white: #FFFDF7;
+            --cream: #F8F1E5;
+            --coral: #FF6B6B;
+            --teal: #27B7B0;
+            --purple: #A77BDA;
+            --gray: #e0e0e0;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--white);
+            color: var(--black);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            line-height: 1.2;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.02em;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: var(--transition);
+            border: 2px solid transparent;
+            text-align: center;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .btn--primary {
+            background: var(--black);
+            color: var(--primary);
+        }
+
+        .btn--primary:hover {
+            background: var(--primary);
+            color: var(--black);
+        }
+
+        .btn--outline {
+            border-color: var(--black);
+            color: var(--black);
+        }
+
+        .btn--outline:hover {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        /* Announcement Bar */
+        .announcement {
+            background: var(--black);
+            color: var(--primary);
+            text-align: center;
+            padding: 8px 0;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .logo span {
+            background: var(--primary);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .cart-trigger {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            background: var(--coral);
+            color: white;
+            font-size: 0.7rem;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: var(--primary);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero__grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero__content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+
+        .hero__content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .hero__image {
+            background: var(--black);
+            height: 400px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-weight: 900;
+            font-size: 2rem;
+            box-shadow: 20px 20px 0 var(--black);
+        }
+
+        /* Categories */
+        .section-title {
+            text-align: center;
+            margin: 60px 0 40px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .category-card {
+            background: var(--cream);
+            padding: 30px;
+            border-radius: 15px;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .category-card h3 {
+            margin: 15px 0;
+        }
+
+        /* Product Grid */
+        .product-filters {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            border: 1px solid var(--black);
+            background: transparent;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .filter-btn.active {
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            position: relative;
+            transition: var(--transition);
+            border: 1px solid var(--gray);
+        }
+
+        .product-card:hover {
+            border-color: var(--primary);
+        }
+
+        .product-image {
+            background: var(--cream);
+            height: 200px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #ccc;
+        }
+
+        .product-tag {
+            position: absolute;
+            top: 25px;
+            left: 25px;
+            background: var(--black);
+            color: var(--primary);
+            padding: 4px 12px;
+            font-size: 0.7rem;
+            font-weight: 800;
+            border-radius: 4px;
+        }
+
+        .product-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .product-price {
+            font-weight: 700;
+            color: var(--black);
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        /* Cart Drawer */
+        .cart-drawer {
+            position: fixed;
+            top: 0;
+            right: -400px;
+            width: 100%;
+            max-width: 400px;
+            height: 100%;
+            background: var(--white);
+            z-index: 2000;
+            box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+            transition: 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            padding: 30px;
+        }
+
+        .cart-drawer.open {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .cart-items {
+            flex-grow: 1;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid var(--gray);
+        }
+
+        .cart-footer {
+            padding-top: 20px;
+            border-top: 2px solid var(--black);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 80px 0 40px;
+            margin-top: 80px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .newsletter input {
+            padding: 12px;
+            width: 100%;
+            border-radius: 4px;
+            border: none;
+            margin-bottom: 10px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .hero__grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero__content h1 {
+                font-size: 2.5rem;
+            }
+            .nav-menu {
+                display: none;
+            }
+            .mobile-toggle {
+                display: block;
+            }
+            .hero__image {
+                height: 250px;
+            }
+        }
+
+        /* Utility */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            display: none;
+            z-index: 1500;
+        }
+
+        .overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="announcement">
+        <span id="announcement-text">UNLEASH YOUR CREATIVITY WITH NUVORA!</span>
+    </div>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo"><span>N</span> NUVORA</a>
+            
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#shop" class="nav-link">Shop All</a></li>
+                <li><a href="#" class="nav-link">DIY Kits</a></li>
+                <li><a href="#" class="nav-link">Kids</a></li>
+                <li><a href="#" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <div class="search-btn">🔍</div>
+                <div class="cart-trigger" id="cart-btn">
+                    🛒 <span class="cart-count" id="cart-count">0</span>
+                </div>
+                <div class="mobile-toggle">☰</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container hero__grid">
+            <div class="hero__content">
+                <h1>Creativity Takes Shape.</h1>
+                <p>Discover the joy of creating something extraordinary. Explore POP crafts, gypsum art, and fun painting kits designed to inspire creativity in every age.</p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap;">
+                    <a href="#shop" class="btn btn--primary">Shop All Products</a>
+                    <a href="#categories" class="btn btn--outline">Explore DIY Kits</a>
+                </div>
+            </div>
+            <div class="hero__image">
+                NUVORA STUDIO
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="categories">
+        <h2 class="section-title">Shop by Category</h2>
+        <div class="category-grid">
+            <div class="category-card">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🏺</div>
+                <h3>POP & Gypsum</h3>
+                <p>Beautiful plaster figures and ready-to-paint creations.</p>
+            </div>
+            <div class="category-card">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🎨</div>
+                <h3>Painting Kits</h3>
+                <p>Complete sets for little creators and hobby artists.</p>
+            </div>
+            <div class="category-card">
+                <div style="font-size: 3rem; margin-bottom: 10px;">🎁</div>
+                <h3>Gift Sets</h3>
+                <p>Thoughtful gifts for birthdays and special celebrations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" id="shop">
+        <h2 class="section-title">Featured Products</h2>
+        
+        <div class="product-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="kids">Kids</button>
+            <button class="filter-btn" data-filter="adult">Adults</button>
+            <button class="filter-btn" data-filter="gypsum">Gypsum</button>
+        </div>
+
+        <div class="product-grid" id="product-list">
+            <!-- Products will be injected by JavaScript -->
+        </div>
+    </section>
+
+    <section style="background: var(--cream); padding: 80px 0; margin-top: 80px;">
+        <div class="container" style="text-align: center;">
+            <h2 style="margin-bottom: 20px;">A Little Creativity in Your Inbox</h2>
+            <p style="margin-bottom: 30px;">Discover new craft kits, creative inspiration, and special offers.</p>
+            <form id="newsletter-form" class="newsletter" style="max-width: 500px; margin: 0 auto; display: flex; gap: 10px;">
+                <input type="email" placeholder="Your email address" required>
+                <button type="submit" class="btn btn--primary" style="white-space: nowrap;">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">NUVORA</div>
+                    <p style="opacity: 0.7;">Creativity Takes Shape. Making art accessible for everyone through thoughtfully designed DIY kits.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Shop</h4>
+                    <ul>
+                        <li><a href="#">Gypsum Crafts</a></li>
+                        <li><a href="#">Painting Kits</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Shipping Policy</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Follow Us</h4>
+                    <div style="display: flex; gap: 15px; margin-top: 10px;">
+                        <span>FB</span> <span>IG</span> <span>PT</span>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; border-top: 1px solid #333; padding-top: 30px; font-size: 0.8rem; opacity: 0.5;">
+                &copy; 2026 NUVORA. All rights reserved. Designed for Creativity.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Drawer UI -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-drawer" id="cart-drawer">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <span style="cursor: pointer; font-size: 1.5rem;" id="close-cart">&times;</span>
+        </div>
+        <div class="cart-items" id="cart-items-list">
+            <!-- Cart items injected here -->
+        </div>
+        <div class="cart-footer">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: 700;">
+                <span>Total:</span>
+                <span id="cart-total">$0.00</span>
+            </div>
+            <button class="btn btn--primary" style="width: 100%;" onclick="alert('Checkout integration needed!')">Checkout Now</button>
+        </div>
+    </div>
+
+    <script>
+        // PRODUCT DATA
+        const products = [
+            {
+                id: 1,
+                name: "Mini POP Animal Kit",
+                price: 19.99,
+                category: "kids",
+                tag: "Bestseller",
+                imagePlaceholder: "🐻"
+            },
+            {
+                id: 2,
+                name: "Gypsum Floral Figurine",
+                price: 24.50,
+                category: "gypsum",
+                tag: "New",
+                imagePlaceholder: "🌸"
+            },
+            {
+                id: 3,
+                name: "Adult Relaxation Kit",
+                price: 34.99,
+                category: "adult",
+                tag: "Relaxing",
+                imagePlaceholder: "🧘"
+            },
+            {
+                id: 4,
+                name: "Rainbow Plaster Set",
+                price: 15.00,
+                category: "kids",
+                tag: "Sale",
+                imagePlaceholder: "🌈"
+            },
+            {
+                id: 5,
+                name: "Home Decor Craft Box",
+                price: 45.00,
+                category: "gypsum",
+                tag: "Premium",
+                imagePlaceholder: "🏠"
+            },
+            {
+                id: 6,
+                name: "Beginner Painting Palette",
+                price: 12.99,
+                category: "adult",
+                tag: "Essential",
+                imagePlaceholder: "🎨"
+            }
+        ];
+
+        // STATE
+        let cart = JSON.parse(localStorage.getItem('nuvora-cart')) || [];
+
+        // DOM ELEMENTS
+        const productList = document.getElementById('product-list');
+        const cartCount = document.getElementById('cart-count');
+        const cartBtn = document.getElementById('cart-btn');
+        const cartDrawer = document.getElementById('cart-drawer');
+        const closeCart = document.getElementById('close-cart');
+        const overlay = document.getElementById('overlay');
+        const cartItemsList = document.getElementById('cart-items-list');
+        const cartTotal = document.getElementById('cart-total');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+
+        // INITIALIZE
+        function init() {
+            renderProducts(products);
+            updateCartUI();
+        }
+
+        // RENDER PRODUCTS
+        function renderProducts(items) {
+            productList.innerHTML = '';
+            items.forEach(product => {
+                const card = document.createElement('div');
+                card.className = 'product-card';
+                card.innerHTML = `
+                    <div class="product-tag">${product.tag}</div>
+                    <div class="product-image" style="font-size: 4rem;">${product.imagePlaceholder}</div>
+                    <div class="product-info">
+                        <h3>${product.name}</h3>
+                        <span class="product-price">$${product.price.toFixed(2)}</span>
+                        <button class="btn btn--primary" style="width: 100%; font-size: 0.7rem; padding: 8px;" onclick="addToCart(${product.id})">Add to Cart</button>
+                    </div>
+                `;
+                productList.appendChild(card);
+            });
+        }
+
+        // FILTERING
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                const filter = btn.dataset.filter;
+                const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+                renderProducts(filtered);
+            });
+        });
+
+        // CART LOGIC
+        window.addToCart = function(id) {
+            const product = products.find(p => p.id === id);
+            const existing = cart.find(item => item.id === id);
+            
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({...product, quantity: 1});
+            }
+            
+            saveCart();
+            updateCartUI();
+            openCart();
+        };
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            saveCart();
+            updateCartUI();
+        }
+
+        function saveCart() {
+            localStorage.setItem('nuvora-cart', JSON.stringify(cart));
+        }
+
+        function updateCartUI() {
+            // Count
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+
+            // List
+            cartItemsList.innerHTML = '';
+            let total = 0;
+
+            if(cart.length === 0) {
+                cartItemsList.innerHTML = '<p style="text-align:center; margin-top: 20px; opacity: 0.5;">Your cart is empty.</p>';
+            }
+
+            cart.forEach(item => {
+                const itemEl = document.createElement('div');
+                itemEl.className = 'cart-item';
+                itemEl.innerHTML = `
+                    <div style="background: var(--cream); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 1.5rem;">${item.imagePlaceholder}</div>
+                    <div style="flex-grow: 1;">
+                        <h4 style="font-size: 0.9rem;">${item.name}</h4>
+                        <div style="font-size: 0.8rem; opacity: 0.7;">$${item.price} x ${item.quantity}</div>
+                    </div>
+                    <div style="cursor: pointer; color: var(--coral);" onclick="removeFromCart(${item.id})">Remove</div>
+                `;
+                cartItemsList.appendChild(itemEl);
+                total += item.price * item.quantity;
+            });
+
+            cartTotal.textContent = `$${total.toFixed(2)}`;
+        }
+
+        // DRAWER CONTROLS
+        function openCart() {
+            cartDrawer.classList.add('open');
+            overlay.classList.add('active');
+        }
+
+        function closeCartDrawer() {
+            cartDrawer.classList.remove('open');
+            overlay.classList.remove('active');
+        }
+
+        cartBtn.addEventListener('click', openCart);
+        closeCart.addEventListener('click', closeCartDrawer);
+        overlay.addEventListener('click', closeCartDrawer);
+
+        // NEWSLETTER
+        document.getElementById('newsletter-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for subscribing to NUVORA! This is a demo - no email was sent.');
+            e.target.reset();
+        });
+
+        // Start
+        init();
+
+    </script>
+</body>
+</html>
